@@ -239,6 +239,19 @@ void showLoadingScreen() {
     }
     clearScreen();
 }
+// Function to display "Game Over"
+void displayGameOver() {
+    int consoleWidth = 80;
+    int consoleHeight = 24;
+    int centerX = (consoleWidth - 9) / 2; // Center "Game Over"
+    int centerY = (consoleHeight - 1) / 2; // Center vertically
+
+    gotoxy(centerX, centerY);
+    SetColor(12); // Set text color to red
+    printf("Game Over!");
+    SetColor(15); // Set text color to white
+}
+
 int main() {
     printInstructions(); // Display instructions before starting the game
     showLoadingScreen(); // Display a loading screen
@@ -260,10 +273,17 @@ int main() {
         Sleep(1);  // Sleep for 1 milliseconds
     }
 
+    // Display "Game Over" when the game is over
+    displayGameOver();
+
     // Restore the console cursor when the game is over if needed
     cursorInfo.bVisible = 1; // Set to 1 for true (show)
     SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
 
+    // Wait for a key press to exit
+    getch();
+
     return 0;
 }
+
 
