@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1703635392 source:c:\users\user\downloads\new graphics library\ds\squarrootbybinarysearch\main.cpp
+	<windows.h>
+	<cstdio>
+	<cmath>
+
